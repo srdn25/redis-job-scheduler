@@ -1,0 +1,46 @@
+{
+  "name": "redis-job-scheduler",
+  "version": "1.0.0",
+  "description": "Job scheduler based on redis",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "tsc --declaration --project ./",
+    "dev": "node -r ts-node/register index.ts",
+    "lint": "eslint . --ext .js,.ts --fix",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/srdn25/redis-job-scheduler.git"
+  },
+  "keywords": [
+    "redis",
+    "node",
+    "typescript",
+    "scheduler",
+    "job",
+    "task",
+    "manager",
+    "docker",
+    "jest",
+    "lint",
+    "queue",
+    "timeout"
+  ],
+  "author": "srdn25",
+  "license": "SEE LICENCE IN LICENCE",
+  "bugs": {
+    "url": "https://github.com/srdn25/redis-job-scheduler/issues"
+  },
+  "homepage": "https://github.com/srdn25/redis-job-scheduler#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.7",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "eslint": "^8.53.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
