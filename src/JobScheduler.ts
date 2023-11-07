@@ -40,11 +40,11 @@ export class JobScheduler {
     this.listener.disconnect();
   }
 
-  addHandler(name: string, func: (payload: TPayload) => void) {
+  addHandler(name: string, fn: (payload: TPayload) => void) {
     if (name.includes('__')) {
       throw new Error('Handler cannot contain "__"');
     }
-    this.handlers[name] = func;
+    this.handlers[name] = fn;
   }
 
   private async executeJob(key: string) {
@@ -66,8 +66,10 @@ export class JobScheduler {
 
   cancelJob(handler: string, id: TId) {
     const key: string = `${this.signature}:${handler}__${id}`;
-    this.redis.del(key);
-    this.redis.del(`shadow:${key}`);
+    return Promise.all([
+      this.redis.del(key),
+      this.redis.del(`shadow:${key}`),
+    ]);
   }
 
   async scheduleJobInSeconds(
