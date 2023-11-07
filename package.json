@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Job scheduler based on redis",
   "main": "build/index.js",
+  "engines": {
+    "node": "18.16.0",
+    "npm": "9.6.7"
+  },
   "scripts": {
     "start": "node index.js",
     "build": "tsc --declaration --project ./",
     "dev": "node -r ts-node/register examples/connectJobSheduler.ts",
     "lint": "eslint . --ext .js,.ts --fix",
-    "test": "jest"
+    "test": "jest --forceExit --detectOpenHandles"
   },
   "repository": {
     "type": "git",

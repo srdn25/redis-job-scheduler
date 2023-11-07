@@ -42,7 +42,7 @@ export class JobScheduler {
 
   addHandler(name: string, fn: (payload: TPayload) => void) {
     if (name.includes('__')) {
-      throw new Error('Handler cannot contain "__"');
+      throw new Error('Handler cannot contains "__"');
     }
     this.handlers[name] = fn;
   }
